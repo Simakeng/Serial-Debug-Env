@@ -31,6 +31,27 @@ extern "C"
         UART_PARITY_SPACE = 4, // Space parity
     } uart_parity_e;
 
+#pragma warning(push, 0)
+    static inline const char *strf_uart_parity_e(uart_parity_e v)
+    {
+        switch (v)
+        {
+        case UART_PARITY_NO:
+            return "No parity";
+        case UART_PARITY_ODD:
+            return "Odd parity";
+        case UART_PARITY_EVEN:
+            return "Even parity";
+        case UART_PARITY_MARK:
+            return "Mark parity";
+        case UART_PARITY_SPACE:
+            return "Space parity";
+        default:
+            return "Unknown parity";
+        }
+    }
+#pragma warning(pop)
+
     /**
      * @brief UART stop bits
      */
@@ -40,6 +61,23 @@ extern "C"
         UART_STOP_BIT_1_5 = 1, // 1.5 stop bits
         UART_STOP_BIT_2 = 2,   // 2 stop bits
     } uart_stop_bits_e;
+
+#pragma warning(push, 0)
+    static inline const char *strf_uart_stop_bits_e(uart_stop_bits_e v)
+    {
+        switch (v)
+        {
+        case UART_STOP_BIT_1:
+            return "1 stop bit";
+        case UART_STOP_BIT_1_5:
+            return "1.5 stop bits";
+        case UART_STOP_BIT_2:
+            return "2 stop bits";
+        default:
+            return "Unknown stop bits";
+        }
+    }
+#pragma warning(pop)
 
     /**
      * @brief Initialization parameters of UART port
@@ -94,7 +132,7 @@ extern "C"
      * @param device pointer to UART device handle
      * @param handler handler function
      */
-    void register_uart_rx_handler(uart_device_t *device, uart_rx_handler_t handler);
+    void uart_register_rx_handler(uart_device_t *device, uart_rx_handler_t handler);
 
     /**
      * @brief Send a byte to UART port
@@ -106,10 +144,10 @@ extern "C"
 
     /**
      * @brief main entry of the application
-     * 
-     * @param argc 
-     * @param argv 
-     * @return int 
+     *
+     * @param argc
+     * @param argv
+     * @return int
      */
     int app_main(int argc, char *argv[]);
 #ifdef __cplusplus

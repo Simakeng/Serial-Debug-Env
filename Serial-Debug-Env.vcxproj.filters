@@ -18,5 +18,11 @@
     <ClCompile Include="env\example.c">
       <Filter>Env</Filter>
     </ClCompile>
+    <ClCompile Include="host\debug.cpp">
+      <Filter>Host</Filter>
+    </ClCompile>
+    <ClCompile Include="host\times.cpp">
+      <Filter>Host</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

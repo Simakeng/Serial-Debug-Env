@@ -20,8 +20,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="env\example.c" />
+    <ClCompile Include="host\debug.cpp" />
     <ClCompile Include="host\main.cpp" />
     <ClCompile Include="host\serial.cpp" />
+    <ClCompile Include="host\times.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

@@ -1,19 +1,15 @@
 #include <port_api.h>
-
+#include "host.hpp"
 
 int main(int argc, char *argv[])
 {
-    uart_init_physical_t init = {0};
+    // prepare the host environment
+    Serial::HostInit();
 
-    init.port_name = "COM3";
-    init.buadrate = 115200;
-    init.data_bits = 8;
-    init.stop_bits = UART_STOP_BIT_1;
-    init.parity = UART_PARITY_NO;
-    
-    uart_device_t device;
+    // start the application
+    app_main(argc, argv);
 
-    uart_init_physical(&device, &init);
-
+    // clean up
+    Serial::HostExit();
     return 0;
 }
