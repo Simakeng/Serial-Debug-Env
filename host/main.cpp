@@ -1,28 +1,19 @@
-#include <Windows.h>
+#include <port_api.h>
+
 
 int main(int argc, char *argv[])
 {
-    HANDLE hport = CreateFile(L"COM1",
-        GENERIC_READ | GENERIC_WRITE,
-        0,
-        0,
-        OPEN_EXISTING,
-        FILE_ATTRIBUTE_NORMAL,
-        0);
+    uart_init_physical_t init = {0};
 
-    DCB dcbSerialParams = { 0 };
-    dcbSerialParams.DCBlength = sizeof(dcbSerialParams);
-    if (!GetCommState(hport, &dcbSerialParams))
-    {
-        // error getting state
-    }
-    dcbSerialParams.BaudRate = CBR_19200;
-    dcbSerialParams.ByteSize = 8;
-    dcbSerialParams.StopBits = ONESTOPBIT;
-    dcbSerialParams.Parity = NOPARITY;
-    if (!SetCommState(hport, &dcbSerialParams))
-    {
-        // error setting serial port state
-    }
+    init.port_name = "COM3";
+    init.buadrate = 115200;
+    init.data_bits = 8;
+    init.stop_bits = UART_STOP_BIT_1;
+    init.parity = UART_PARITY_NO;
+    
+    uart_device_t device;
+
+    uart_init_physical(&device, &init);
+
     return 0;
 }

@@ -104,6 +104,14 @@ extern "C"
      */
     void uart_tx_send_byte(uart_device_t *device, uint8_t byte);
 
+    /**
+     * @brief main entry of the application
+     * 
+     * @param argc 
+     * @param argv 
+     * @return int 
+     */
+    int app_main(int argc, char *argv[]);
 #ifdef __cplusplus
 }
 #endif
