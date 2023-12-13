@@ -181,4 +181,29 @@ extern "C"
 
         return;
     }
+    void uart_tx_send_byte(uart_device_t *device, uint8_t byte)
+    {
+        if (device == nullptr)
+            error_exit("device is nullptr\n");
+
+        auto serial = reinterpret_cast<serial_t *>(device);
+
+        if (serial->type == Serial::Type::Physical)
+        {
+            DWORD dwWrite;
+            if (!WriteFile(serial->hport, &byte, 1, &dwWrite, NULL))
+                error_system_api_exit("failed to write to port.\n");
+        }
+        else if (serial->type == Serial::Type::Console)
+        {
+            fprintf(stderr, "%c", byte);
+        }
+        else
+        {
+            error_exit("unknown serial type %d.\n", (int)serial->type);
+        }
+
+        return;
+    }
+    
 }

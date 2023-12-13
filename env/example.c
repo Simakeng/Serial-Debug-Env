@@ -9,6 +9,14 @@ void uart_rx_cplt(uint32_t byte, uint32_t flag)
     debug_putc(byte);
 }
 
+void uart_tx_send_string(uart_device_t* device,const char* str)
+{
+    while(*str)
+    {
+        uart_tx_send_byte(device,*str++);
+    }
+}
+
 int app_main(int argc, char *argv[])
 {
     uart_init_physical_t init = {0};
@@ -24,6 +32,8 @@ int app_main(int argc, char *argv[])
     uart_init_physical(&device, &init);
 
     uart_register_rx_handler(&device, uart_rx_cplt);
+
+    uart_tx_send_string(&device, "Hello world!\n");
 
     while (1)
     {
