@@ -2,8 +2,6 @@
 #include <timer_api.h>
 #include <debug_api.h>
 
-static const uint32_t this_application_is_running_for_ms = 100000;
-
 void uart_rx_cplt(uint32_t byte, uint32_t flag)
 {
     debug_putc(byte);
@@ -22,7 +20,7 @@ int app_main(int argc, char *argv[])
     uart_init_physical_t init = {0};
 
     init.port_name = "COM3";
-    init.buadrate = 256000;
+    init.buadrate = 115200;
     init.data_bits = 8;
     init.stop_bits = UART_STOP_BIT_1;
     init.parity = UART_PARITY_NO;
@@ -39,4 +37,6 @@ int app_main(int argc, char *argv[])
     {
         sys_delay_ms(10);
     }
+
+    return 0;
 }
