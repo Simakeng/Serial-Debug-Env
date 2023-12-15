@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.30621.155
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Serial-Debug-Env", "Serial-Debug-Env.vcxproj", "{718F31E7-BC6E-4155-9C5A-C97A3A71328A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Examples", "Examples", "{1FFD8705-D633-41DE-9A96-AD4BF79E52AA}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "helloworld", "env\examples\helloworld\helloworld.vcxproj", "{71668179-A750-479F-BC72-345CADC1A8A4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,9 +25,20 @@ Global
 		{718F31E7-BC6E-4155-9C5A-C97A3A71328A}.Release|x64.Build.0 = Release|x64
 		{718F31E7-BC6E-4155-9C5A-C97A3A71328A}.Release|x86.ActiveCfg = Release|Win32
 		{718F31E7-BC6E-4155-9C5A-C97A3A71328A}.Release|x86.Build.0 = Release|Win32
+		{71668179-A750-479F-BC72-345CADC1A8A4}.Debug|x64.ActiveCfg = Debug|x64
+		{71668179-A750-479F-BC72-345CADC1A8A4}.Debug|x64.Build.0 = Debug|x64
+		{71668179-A750-479F-BC72-345CADC1A8A4}.Debug|x86.ActiveCfg = Debug|Win32
+		{71668179-A750-479F-BC72-345CADC1A8A4}.Debug|x86.Build.0 = Debug|Win32
+		{71668179-A750-479F-BC72-345CADC1A8A4}.Release|x64.ActiveCfg = Release|x64
+		{71668179-A750-479F-BC72-345CADC1A8A4}.Release|x64.Build.0 = Release|x64
+		{71668179-A750-479F-BC72-345CADC1A8A4}.Release|x86.ActiveCfg = Release|Win32
+		{71668179-A750-479F-BC72-345CADC1A8A4}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{71668179-A750-479F-BC72-345CADC1A8A4} = {1FFD8705-D633-41DE-9A96-AD4BF79E52AA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CCED87D5-38CB-4C3D-82D7-1DC3D2F638B9}

@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="$(SolutionDir)\host\main.cpp">
+      <Filter>Host</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\host\serial.cpp">
+      <Filter>Host</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\host\times.cpp">
+      <Filter>Host</Filter>
+    </ClCompile>
+    <ClCompile Include="helloworld.c">
+      <Filter>Env</Filter>
+    </ClCompile>
+    <ClCompile Include="$(SolutionDir)\host\debug.cpp">
+      <Filter>Host</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Host">
+      <UniqueIdentifier>{cc619855-3ca2-44f2-8a61-7280b4988d2e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Env">
+      <UniqueIdentifier>{1830572b-e01b-4a7e-83c2-fa30df429e2a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -19,16 +19,16 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="env\env.c" />
-    <ClCompile Include="host\debug.cpp" />
-    <ClCompile Include="host\main.cpp" />
-    <ClCompile Include="host\serial.cpp" />
-    <ClCompile Include="host\times.cpp" />
+    <ClCompile Include="helloworld.c" />
+    <ClCompile Include="$(SolutionDir)\host\debug.cpp" />
+    <ClCompile Include="$(SolutionDir)\host\main.cpp" />
+    <ClCompile Include="$(SolutionDir)\host\serial.cpp" />
+    <ClCompile Include="$(SolutionDir)\host\times.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{718f31e7-bc6e-4155-9c5a-c97a3a71328a}</ProjectGuid>
+    <ProjectGuid>{71668179-A750-479F-BC72-345CADC1A8A4}</ProjectGuid>
     <RootNamespace>SerialDebugEnv</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
