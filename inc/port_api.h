@@ -96,7 +96,7 @@ extern "C"
      */
     typedef struct
     {
-        uint8_t dummy[64];
+        void *dummy;
     } uart_device_t;
 
     /**

@@ -56,10 +56,6 @@ struct serial_t
     uart_rx_handler_t handler;
 };
 
-// a little notice to mind you that serial_t is using the memory of static allocated
-// by uart_device_t;
-static_assert(sizeof(serial_t) <= sizeof(uart_device_t), "uart_device_t is too small");
-
 extern "C"
 {
     void uart_init_stdio(uart_device_t *device)
@@ -76,9 +72,9 @@ extern "C"
 
         device_handle = device;
 
-        auto serial = reinterpret_cast<serial_t *>(device);
+        auto serial = new serial_t;
         memset(serial, 0, sizeof(serial_t));
-        serial->type = Serial::Type::Console;
+        device->dummy = serial;
 
         return;
     }
@@ -88,7 +84,7 @@ extern "C"
         if (device == nullptr)
             error_exit("device is nullptr\n");
 
-        auto serial = reinterpret_cast<serial_t *>(device);
+        auto serial = reinterpret_cast<serial_t *>(device->dummy);
         serial->handler = handler;
     }
 
@@ -110,7 +106,8 @@ extern "C"
         fprintf(stderr, "Parity: %s\n", strf_uart_parity_e(init->parity));
         fprintf(stderr, COLOR_RESET);
 
-        auto serial = reinterpret_cast<serial_t *>(device);
+        auto serial = new serial_t;
+        device->dummy = serial;
         memset(serial, 0, sizeof(serial_t));
         serial->type = Serial::Type::Physical;
 
@@ -186,7 +183,7 @@ extern "C"
         if (device == nullptr)
             error_exit("device is nullptr\n");
 
-        auto serial = reinterpret_cast<serial_t *>(device);
+        auto serial = reinterpret_cast<serial_t *>(device->dummy);
 
         if (serial->type == Serial::Type::Physical)
         {
@@ -205,5 +202,4 @@ extern "C"
 
         return;
     }
-    
 }
